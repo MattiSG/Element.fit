@@ -19,11 +19,11 @@ Element.implement({
 	*/
 	fit: function fit(target) {
 		var targetSize = (target || this.getParent()).getSize();
-		var fontSize = this.getStyle('font-size');
+		var fontSize = this.getStyle('font-size').toInt();
 		var couldFit;
 		
 		do {
-			this.setStyle('font-size', fontSize);
+			this.setStyle('font-size', fontSize + 'px');
 			fontSize--;
 			couldFit = fontSize > MIN_FONT_SIZE;
 		} while (this.isBiggerThan(targetSize) && couldFit);
